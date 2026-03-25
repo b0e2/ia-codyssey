@@ -1,20 +1,23 @@
 # 문제3 인화 물질을 찾아라
 # Python Version: 3.9.6 
 
-# 
+# 화성기지 입고 물질 목록 원본 데이터 
 CSV_FILE_PATH = 'Mars_Base_Inventory_List.csv'
 
 
 def find_flammables(target_path):
+    # 입고 물질 목록 리스트 
+    inventory_list = []
     try:
         # 파일 열기 및 입고 물질 목록 읽기
         with open(target_path, 'r', encoding='utf-8') as file:
             lines = file.readlines()
-        # [수행과제] 원본 입고 물질 목록 전체 출력
+        # [수행과제] 원본 입고 물질 목록 전체 출력 및 리스트 객체로 변환 
         print(f'--- [전체 입고 물질 목록 출력: {len(lines)} lines] ---') 
         for line in lines:
             print(line.strip())
-                
+            inventory_list.append(line.strip().split(','))
+
     except FileNotFoundError:
         print(f'Error: 파일 "{target_path}"을(를) 찾을 수 없습니다.')
     except Exception as e:
