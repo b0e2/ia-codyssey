@@ -8,16 +8,26 @@ CSV_FILE_PATH = 'Mars_Base_Inventory_List.csv'
 def find_flammables(target_path):
     # 입고 물질 목록 리스트 
     inventory_list = []
+    header = []
     try:
         # 파일 열기 및 입고 물질 목록 읽기
         with open(target_path, 'r', encoding='utf-8') as file:
-            lines = file.readlines()
-        # [수행과제] 원본 입고 물질 목록 전체 출력 및 리스트 객체로 변환 
-        print(f'--- [전체 입고 물질 목록 출력: {len(lines)} lines] ---') 
-        for line in lines:
-            print(line.strip())
-            inventory_list.append(line.strip().split(','))
-
+            # CSV 파일의 첫 줄은 헤더이므로 별도로 처리하여 리스트로 저장
+            header = next(file).strip().split(',')  
+            # [수행과제] List 객체로 변환 
+            for line in file:
+                inventory_list.append(line.strip().split(','))
+        
+        # [수행과제] 입고 물질 목록 전체 출력
+        print(f'--- [전체 입고 물질 목록 출력: {len(inventory_list)} lines] ---') 
+        for item in [header] + inventory_list:
+            print(','.join(item))
+            
+        # [수행과제] 인화성 높은 순 정렬 
+        inventory_list.sort(key=lambda x: float(x[-1]), reverse=True)
+        
+        
+        
     except FileNotFoundError:
         print(f'Error: 파일 "{target_path}"을(를) 찾을 수 없습니다.')
     except Exception as e:
