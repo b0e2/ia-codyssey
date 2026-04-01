@@ -1,4 +1,4 @@
-# DummySensor.py
+# mars_mission_computer.py
 # 문제6 미션 컴퓨터 리턴즈 
 # Python Version: 3.9.6
 
