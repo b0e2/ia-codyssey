@@ -3,7 +3,6 @@
 import json
 import os
 import platform
-from typing import Any
 
 try:
     import psutil
@@ -20,7 +19,7 @@ class MissionComputer:
             "setting.txt",
         )
 
-    def _print_json(self, data: dict[str, Any]) -> None:
+    def _print_json(self, data: dict) -> None:
         print(json.dumps(data, ensure_ascii=False, indent=4))
 
     def _read_setting_items(self) -> set[str]:
@@ -35,7 +34,7 @@ class MissionComputer:
                 if line.strip() and not line.lstrip().startswith("#")
             }
 
-    def _apply_setting(self, data: dict[str, Any]) -> dict[str, Any]:
+    def _apply_setting(self, data: dict) -> dict:
         selected_items = self._read_setting_items()
         if not selected_items:
             return data
@@ -57,7 +56,7 @@ class MissionComputer:
             return "확인 불가"
         return f"{psutil.virtual_memory().percent:.1f}%"
 
-    def get_mission_computer_info(self) -> dict[str, Any]:
+    def get_mission_computer_info(self) -> dict:
         # [수행과제] 미션 컴퓨터의 시스템 정보를 수집해 JSON으로 출력한다.
         try:
             info = {
@@ -74,7 +73,7 @@ class MissionComputer:
         self._print_json(filtered_info)
         return filtered_info
 
-    def get_mission_computer_load(self) -> dict[str, Any]:
+    def get_mission_computer_load(self) -> dict:
         # [수행과제] CPU와 메모리의 실시간 사용량을 JSON으로 출력한다.
         try:
             load = {
