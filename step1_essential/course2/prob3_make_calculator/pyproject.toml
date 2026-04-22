@@ -1,0 +1,9 @@
+[project]
+name = "prob3-make-calculator"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9.6"
+dependencies = [
+    "pyqt6>=6.10.2",
+]
