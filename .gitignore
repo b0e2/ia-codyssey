@@ -1,6 +1,13 @@
-# Mac system files
-.DS_Store
-
-# Python
+# --- Python ---
 __pycache__/
 *.py[cod]
+*$py.class
+.venv/           
+env/
+venv/
+ENV/
+
+# --- OS (Mac) ---
+.DS_Store
+.AppleDouble
+.LSOverride
