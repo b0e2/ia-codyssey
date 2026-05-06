@@ -11,3 +11,7 @@ ENV/
 .DS_Store
 .AppleDouble
 .LSOverride
+
+
+# --- VSC ---
+.vscode
