@@ -4,7 +4,7 @@ Python과 다중 프로세싱을 활용하여 ZIP 파일(`emergency_storage_key.
 6자리 암호(숫자 및 소문자 알파벳)를 무차별 대입 방식으로 해독하는 스크립트입니다.
 
 ## 실행 결과
-![실행 화면](./assets/course2:prob1:output.png)
+![실행 화면](/assets/course2_prob1_output.png)
 
 
 ## 주요 구현 로직
